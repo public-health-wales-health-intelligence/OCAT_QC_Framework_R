@@ -30,7 +30,7 @@ the flowchart, further detail is provided on the different QC methods shown.
 
 ```{r packages_stylerselection, echo=FALSE, out.width=1200}
 
-knitr::include_graphics("qc_flow_chart_v0b.jpg")
+knitr::include_graphics("qc_flow_chart_v0b.png")
 
 ```
 
