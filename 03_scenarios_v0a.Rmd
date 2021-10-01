@@ -1,0 +1,63 @@
+---
+#title: "Organisation"
+#author: "Hugo Cosh"
+#date: "04/05/2021"
+#output: 
+#  html_document:
+#    css: style_guidance.css
+#knit:"bookdown::render_book" 
+#site: bookdown::bookdown_site
+
+  
+documentclass: book
+output:
+  bookdown::gitbook:
+    split_by: chapter
+    css: style_guidance.css    
+
+---
+
+```{r orgnisationsetup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+```
+
+<!-- Note: File must start with h1 (#) as this forms a new chapter. -->
+
+# Three scenarios for quality control of R code
+
+## Scenario 1: New R code or RAPs being set up for the first time by OCAT
+
+According to OCAT colleagues, there are broad similarities in their approach to QC in R in this scenario so far, with one of the following options being chosen:
+
+*	Production of indicators in R versus production using an ‘old’ method, e.g. SQL or Stata
+* Production of indicators in R versus published figures for that indicator
+*	Production of indicators in R by two different analysts
+
+There does not appear to be any reason to restrict these options at the moment.  However, there is a need for a consistent set of questions to be used for the QC, as there is when QC’ing an Excel file, and a way of recording these to provide an audit trail.
+
+## Scenario 2: Update of R code or RAPs set up previously by OCAT
+
+We were advised by PHE colleagues that they do not continually QC updates of RAPs using the methods outlined in scenario 1.  Rather, they employ a three-step process:
+
+1. Write code to check the data coming into the RAP – e.g. has the format of any of the data changed, or are there any out-of-range values?
+2. A colleague carries out a code review – do all the functions do what they are intended to do?
+3. The results are sense-checked.
+
+This appears to be a sensible quality control process to adopt within OCAT for this scenario.
+
+## Scenario 3: The future - development of more advanced methods
+
+Colleagues from ISD Scotland presented their [guidance on RAPs](https://www.isdscotland.org/About-ISD/Methodologies/_docs/Reproducible_Analytical_Pipelines_paper_v1.4.pdf) to OCAT.  This includes a helpful table (below) showing ‘code maturity’, where RAPs are classified on a scale from 1 to 7, with level 7 representing the highest level of maturity.  From level 5, quality assurance is automated and unit testing is carried out on functions (to check they are doing what they are meant to be doing).
+Currently, in OCAT, we have achieved elements of levels 1 to 4, but without version control of code using Git, which is currently being investigated.
+
+A key aim for data science within OCAT is therefore to develop the maturity of our code and implement automated quality control of data and unit testing, as well as version control using Git.  This will push us on to levels 5 to 7 of code maturity.  Automated quality assurance, i.e. of data coming into an RAP, is already being explored by the Covid Recovery Profile team.
+
+Achieving these aims requires the right project with an appropriate deadline, plus some staff development time, to implement these new techniques using 'real world' projects.  
+
+
+```{r echo=FALSE, out.width = "100%", fig.align='center', fig.cap = "Code maturity table (ISD Scotland)"}
+knitr::include_graphics("isd_scotland_code_maturity.PNG")
+
+```

@@ -1,0 +1,94 @@
+---
+#title: "styling"
+#author: "Rachel Burton"
+#date: "05/05/2021"
+# output: 
+#   html_document:
+#     css: style_guidance.css
+    
+documentclass: book
+output:
+  bookdown::gitbook:
+    split_by: chapter
+    css: style_guidance.css  
+---
+
+```{r stylingsetup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<!-- Note: File must start with h2 (##) as this forms a new tab. All other headings must be level 3 (###) or higher -->
+
+# Deciding what kind of QC to do in R, and how to carry it out
+
+This flowchart is provided to help with deciding what kind of QC to carry out.
+The two scenarios described in section 3 are shown in the flowchart.  Underneath
+the flowchart, further detail is provided on the different QC methods shown.
+
+
+
+
+```{r packages_stylerselection, echo=FALSE, out.width=1200}
+
+knitr::include_graphics("qc_flow_chart_v0b.jpg")
+
+```
+
+
+
+## Scenario 1: further detail  
+1. Compare to 'old method' e.g. SQL, Excel, Stata  
+This method of QC is more likely to be used where there is an existing piece of
+work that has been done using the 'old method' e.g. SQL, Excel, Stata.  For example, a piece of
+survey analysis may have been carried out using Stata and Excel a couple of years
+ago, and so the easiest way to QC the new R script is to make it run the same analysis
+on the same data as the Stata and Excel piece of work, and compare the results. If a 
+piece of work using the 'old method' has not been carried out previously to compare to,
+then it is probably best to write an independent piece of R code and then compare the
+results (see 3 below). This will provide an opportunity for the QCing analyst to 
+develop their R skills.
+2. Compare to published figures
+If the results of a new R script compare well with published figures, e.g. for 
+a number of different age-standardised mortality rates, then it can reasonably 
+be assumed that the R script is working well and the QC can be passed.  However, 
+it would still be necessary to go through the script and complete the QC checks
+listed in section 5.2.  
+3. Write your own R code and then compare the results  
+Here, the QCing analyst writes an independent piece of R code to produce the same
+statistics. This is preferred to the QCing analyst simply checking through the 
+analyst's code, because it is all too easy to read someone else's code and think it
+looks OK, when in fact there are hidden issues that would only come to light when 
+writing independent code.  This can be time-consuming, but provides an 
+opportunity to develop R skills. 
+
+## Scenario 2: further detail  
+1. Input: check data coming in  
+The aim of this step is to check that data coming into the pipeline, e.g. from
+a SQL database or a survey dataset, is in a fit state to be run through
+the R script. For example: 
+* Is the number of rows within the right ballpark, or is a load of data missing?
+* Are there any missing values?
+* Have any of the data types changes, e.g. a column that was previously character
+now coming in as a factor type?
+
+These checks are required to prevent the R script from producing figures that
+might appear OK, but are actually erroneous due to changes in the underlying data.
+Ideally, checks should be automated as much as possible within an R script, to 
+make the process more efficient. For example, the Covid Recovery Profile uses 
+functions to check incoming data, so that the analyst running the script can 
+simply look through the results of the checks, rather than having to run each 
+check manually.
+
+2. Review the code  
+As described in section 5.3, the aim of the code review is to check that the code
+is doing what it is meant to do.  If the code was only QC'd recently, and
+is now being run to update the indicators, then a code review is not required.
+However, if six months to a year has passed since the code was originally QC'd, 
+it is suggested that the QCing analyst carries out a code review, as described
+in section 5.3.  
+
+3. Sense check the results  
+The QCing analyst should check that trends look OK, and compare well to published
+figures or previous analyses carried out within OCAT. See prompts within 
+section 5.3. This acts as a final check, and in the past has been known to uncover
+errors within an analysis that have passed through QC.
