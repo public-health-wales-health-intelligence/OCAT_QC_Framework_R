@@ -34,7 +34,7 @@ A quality control framework is therefore required now, which will cater for the 
 
 With these requirements in mind, meetings were arranged with the following groups, to help inform the development of the new framework:
 
-* OCAT colleagues who have recently project managed major pieces of work carried out in R (discussions captured in this file: \\\\ryt6bsrvfil0002\\observatory\\Health Intelligence\\Method\\Quality Assurance\\R\\20200204_QC-of-RAPs_DiscussionWithProjectLeads_HC_v0a.docx)
+* OCAT colleagues who have recently project managed major pieces of work carried out in R (discussions captured in this file: \\Health Intelligence\\Method\\Quality Assurance\\R\\20200204_QC-of-RAPs_DiscussionWithProjectLeads_HC_v0a.docx)
 *	Public Health England data science team (Seb Fox and Julian Flowers)
 *	Information Services Division (ISD) Scotland, now Public Health Scotland (Ciara Gribben and David Caldwell
 
