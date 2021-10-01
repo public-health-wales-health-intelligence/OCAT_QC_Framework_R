@@ -1,0 +1,45 @@
+---
+#title: "Introduction"
+#author: "Hugo Cosh"
+#date: "04/05/2021"
+# output: 
+#   html_document:
+#     css: style_guidance.css
+    
+documentclass: book
+output:
+  bookdown::gitbook:
+    split_by: chapter
+    css: style_guidance.css
+    
+header-includes:
+  - \usepackage{pdfpages}    
+---
+
+```{r introductionsetup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<!-- Note: File must start with h2 (##) as this Introduction sits below the main OCAT title in the skeleton rmd. -->
+
+To jump straight to the QC templates, click [here](#QC-template)
+
+# Introduction
+
+It was recognised that a new framework is required to formalise quality control (QC) of R code and Reproducible Analytical Pipelines (RAPs) produced within the Observatory & Cancer Analysis Team (OCAT), and to outline how more advanced QC methods might be developed for RAPs in the future.
+
+Over the last 3 years, OCAT has begun to conduct analysis in R and develop RAPs in order to produce health intelligence publications more efficiently.  Whereas traditional approaches have used multiple pieces of proprietary software to extract, manipulate and present data, an RAP uses a single piece of open source software to perform these tasks.  For example, the origianl Child Measurement Programme analysis involved a complex process of moving data between SQL, Stata and Excel, with presentation of the charts in interactive Excel spreadsheet. This process was then turned into an RAP, with all stages carried out in R: extracting the data from the SQL database, data manipulation, statistical analysis, and then presenting the charts in an R/shiny dashboard. The following diagram depicts the original process compared to the RAP:  
+
+```{r echo=FALSE, out.width = "95%", fig.align='center', fig.cap = "CMP workflow: original process compared to Reproducible Analytical Pipeline using R"}
+knitr::include_graphics("CMP_combined.png")
+
+```
+
+
+These developments followed the discovery of a Government Digital Service [blog](https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/) in which the use of RAPs is further explained.  The key benefits are as follows:
+
+*	Greater efficiency, since the process is programmed using code rather than carried out with point-and-click software;
+*	Greater reproducibility, since the program provides a clear audit trail of the processing and analysis that has been carried out;
+*	Greater transparency, since the program can easily be shared with others, potentially online;
+*	Improved accuracy, because rather than copying data between multiple pieces of software, a single programming language can complete the whole process from data extraction to publication;
+*	Reduced costs, because the software used is open-source.

@@ -1,0 +1,47 @@
+---
+#title: "Development of the framework"
+#author: "Hugo Cosh"
+#date: "04/05/2021"
+# output: 
+#   html_document:
+#     css: style_guidance.css
+    
+documentclass: book
+output:
+  bookdown::gitbook:
+    split_by: chapter
+    css: style_guidance.css       
+---
+
+```{r namingsetup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<!-- Note: File must start with h1 (#) as this forms a new chapter. -->
+
+
+# Development of the QC framework
+
+## Requirements
+
+Traditional methods of producing health intelligence publications have used traditional methods of quality control, largely documented using Microsoft Excel.  These methods of quality control do not apply neatly to RAPs.
+
+However, we may also not be ready for the development of more advanced “unit testing” approaches, as described in the blog linked within the introduction.
+
+A quality control framework is therefore required now, which will cater for the current context and levels of knowledge and skills within the team, whilst pointing the way to the development of more advanced methods in the future.
+
+## Approach and outcome
+
+With these requirements in mind, meetings were arranged with the following groups, to help inform the development of the new framework:
+
+* OCAT colleagues who have recently project managed major pieces of work carried out in R (discussions captured in this file: \\\\ryt6bsrvfil0002\\observatory\\Health Intelligence\\Method\\Quality Assurance\\R\\20200204_QC-of-RAPs_DiscussionWithProjectLeads_HC_v0a.docx)
+*	Public Health England data science team (Seb Fox and Julian Flowers)
+*	Information Services Division (ISD) Scotland, now Public Health Scotland (Ciara Gribben and David Caldwell
+
+Having carried out these meetings, the following three scenarios emerged, each of which will require a different approach to quality control:
+
+<ol>	
+<li> New R code or RAPs being set up for the first time by OCAT
+<li> Update of R code or RAPs set up previously by OCAT
+<li> The future - development of more advanced methods
+</ol>

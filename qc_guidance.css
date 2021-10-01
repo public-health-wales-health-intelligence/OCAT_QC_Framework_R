@@ -1,0 +1,115 @@
+
+/* css draft style guide  - provides style for fonts*/
+
+
+/********************Headings**********************/
+
+.hasAnchor {
+  color: #e03882;
+font-family: "Verdana";
+/*font-size : 20px;*/
+font-size : 14px;
+font-weight : bold;
+}
+
+
+h1 {
+  color: #e03882;
+font-family: "Verdana";
+/*font-size : 20px;*/
+font-size: 20px !important;
+font-weight: bold;
+}
+
+h2 {
+  color: #e03882;
+font-family: "Verdana";
+/*font-size : 18px;*/
+font-size: 16px !important;
+font-weight: bold;
+}
+
+h3 {
+  color: #5b739c;
+font-family: "Verdana";
+/*font-size : 16px;*/
+font-size : 14px !important;
+font-weight : bold;
+}
+
+h4 {
+  color: #5b739c;
+font-family: "Verdana";
+/*font-size : 14px;*/
+font-size : 14px !important;
+font-weight : bold;
+}
+
+h5 {
+  color: #5b739c;
+font-family: "Verdana";
+/*Font-size : 12px;*/
+font-size : 12px !important;
+font-weight : bold;
+}
+
+/********************Main body of text **********************/
+/*This is the main body text for the pannel and bullet points. 
+Padding adds spacing around the column/row boxes in the main markdown with the numbers referring to: top, side, bottom, side*/
+
+body {
+color: #333333;
+font-family: "Verdana";
+font-size: 13px; 
+padding: 60px 100px 30px 100px;
+background: white; /*this changes the overall background colour of the page - default is grey*/
+}
+
+
+/*This is the main body of text from the rmarkdown file*/
+p {
+color: #333333;
+font-family: "Verdana";
+font-size : 13px;
+margin: 0 0 0 0;
+padding: 7px;
+text-align: justify;
+text-justify: inter-word;
+}
+
+
+/*This is the bullet points*/
+li {
+color: #333333;
+font-family: "Verdana";
+font-size : 13px;
+}
+
+/* r coding output - printing code https://bookdown.org/yihui/rmarkdown-cookbook/chunk-styling.html*/
+/* .r {*/
+.sourceCode .r {
+font-size: 16px;    /* was size 12 */
+/*background-color:#f5f5f5;*/
+background-color: #4b41cc;  /* doesn't work - I wonder why not? */
+border: 2px solid #bfbfbf;
+color: red !important;
+font-style: normal;
+} 
+
+/* attempt to change colour of printed r code (anything in "" in r, not main code)*/
+.hljs-string {
+ color: #e03882;
+}
+
+/* changes the colour of printed r comments*/
+.hljs-comment {
+ /*color: #235b8b*/
+color: #5b739c /*change to OAT blue*/
+}
+
+/*attemp to change colour of other r font but doesn't seem to work*/
+.hjls{
+ color: #e03882;
+}
+
+

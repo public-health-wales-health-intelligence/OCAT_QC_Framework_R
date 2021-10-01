@@ -1,0 +1,221 @@
+---
+#title: "Example Stylr Lint"
+#author: "Rachel Burton"
+#date: "20/04/2021"
+# output: 
+#   html_document:
+#     css: style_guidance.css
+    
+documentclass: book
+output:
+  bookdown::gitbook:
+    split_by: chapter
+    css: style_guidance.css  
+---
+
+```{r qc_template_setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# QC templates {#QC-template}
+This section provides template text for you to paste into the top of 
+your R script and then use to document the QC.  Please note that these templates can be adjusted according to need, although this would generally be about adding or amending, rather than removing a whole load of checks ;-)  
+Also, if your project is large and you are QC'ing an analysis that is produced by a number of different R scripts, it may be best to have a separate over-arching 'QC script' which just holds the Readme / Audit trail / QC questions, rather than trying to put these at the top of each R script.
+
+When you hover over the template text, the 'Copy' button will appear at the top-right of the window.  Use this to copy the text into your R script.
+
+Template text is provided for the following.
+
+* Readme - this is the metadata that records what you did, what data you used, etc. This is vital information to enable other analysts to understand what was done. The Readme section should be included once for **every analysis**, whether that's at the top of the R script used to the produce the analysis, or in a separate over-arching 'QC script' for larger projects that use a number of different R scripts to produce the analysis.
+
+* Scenario 1: 
+  - Audit trail
+  - Quality control questions
+
+* Scenario 2: 
+  - Audit trail
+  - Quality control questions
+  
+## Readme
+
+Notes for use:
+
+* **Data source** should include numerator and denominator data
+* **Demography** means the sex and age of the population included in the analysis
+* **Statistics** means counts, crude rates, EASR, confidence intervals etc. 
+
+```{r qc_template_code_readme, eval = FALSE}
+
+# README =======================================================================
+# 
+# Script author:
+# Date started:
+# R version used:
+# What question is being answered?
+#
+# Topic:
+# Subject:
+# Data source:
+# Geography:
+# Period:
+# Demography:
+# Statistics:
+# 
+# Notes:
+# References, e.g. links to any online R help used:
+# 
+# ==============================================================================
+
+```
+
+
+## Scenario 1
+
+When the analysis you are QC'ing corresponds to Scenario 1, i.e. some R code that has not been QC'd before, use the following audit trail and QC checks.
+
+```{r qc_template_code_scenario1_audittrail, eval = FALSE}
+
+# AUDIT TRAIL ==================================================================
+# 
+# Indicator(s) being QC’d:
+#   
+# Date: 
+# Name of QCer:
+# Time taken (approx):
+#   
+# Which of the following methods were used?  (1, 2, or 3)
+# 1. Production of indicators in R versus production using an ‘old’ method,
+#         e.g. SQL or Stata
+# 2. Production of indicators in R versus published figures for that indicator
+# 3. Production of indicators in R by two different analysts
+# If none of these methods were used, please indicate how the indicator 
+# was QC’d:
+#       
+# Description of what files were used to carry out the QC, including file paths:
+#
+# What were the results of the QC, i.e. did the two sets of figures match?
+#
+# If not, what steps were required to reconcile them, at least within reasonable
+# limits?
+#
+# What changes were made following the QC checks?
+#
+# Other notes:
+# 
+# ==============================================================================
+
+
+
+# QC checks ====================================================================
+# (checks of method and outputs, further to comparing the two sets of figures
+#  using method 1, 2 or 3)
+# a. Does the analysis answer the question being asked?
+#
+# b. Metadata:
+# Has the Readme info been included at the top of the script?
+#
+# Is it clear where the data comes from?
+#
+# Have the caveats around the data sources been taken into account within the 
+# analysis, and reported within the Readme sheet or comments in the R script? 
+# E.g. missing diagnosis codes when using PEDW.
+#
+# c. Information governance
+# Are there any information governance concerns, e.g. small numbers?
+#
+# d. Check numerator and denominator data
+# Have the correct ICD-10 or OPCS codes been used to extract the numerator data?
+#
+# Does the denominator match the numerator in age/sex, time period and area?
+#
+# e. Check statistical methods
+# Correct decision made to include or omit confidence intervals?
+#
+# Correct method used to calculate confidence intervals?
+#
+# Correct method used to test statistical significance?
+#
+# Appropriate use of crude / age-standardised rates?
+#
+# Correct weightings used for direct standardisation?
+#
+# Comparator (e.g. Wales average) provided as appropriate?
+#
+# f. Carry out a ‘sense check’ of the results:
+# 1. Do they appear reasonable?  Are they much higher or lower than in 
+#    previous years?
+# 2. How do they compare with published figures?
+#
+# g. Check table and chart formatting
+# Is the table formatting satisfactory?
+# Is the chart formatting satisfactory?
+
+# h. Does the style of the code, and the naming of files and objects,
+#    conform to the OCAT style guide?
+
+# ==============================================================================
+
+
+
+```
+
+## Scenario 2
+
+When the analysis you are QC'ing corresponds to Scenario 2, i.e. some R code that has been QC'd before and is now being run again, use the following audit trail and QC checks.
+
+```{r qc_template_code_scenario2_audittrail, eval = FALSE}
+
+# AUDIT TRAIL ==================================================================
+# 
+# Indicator(s) being QC’d:
+#   
+# Date: 
+# Name of QCer:
+# Time taken (approx):
+#   
+# Results of the QC checks should be documented in the 'QC checks' section 
+# below.
+#
+# What changes were made following the QC checks?
+#
+# Other notes:
+# 
+# ==============================================================================
+
+
+
+# QC checks ====================================================================
+#
+# 1. Has code been written to check the data coming into the pipeline, 
+#    for example:
+#    a.	Are there any missing values?
+#    b.	Are any values ‘out of range’, e.g. implausible age, height or weight?
+#    c.	Are there any differences in how the source data is formatted, e.g. are 
+#     the numbers formatted as integer in one year and then decimal in another 
+#     year?
+
+# 2. Is a code review is required, e.g. if a considerable time has passed since the
+#    code was first written and QC’d?  If a code review is required, make a 
+#    copy of the original script, and make comments within it wherever you think
+#    something could be improved, using the questions below as a prompt.
+#    Then answer the questions below:
+#    
+#    Does the overall process followed by the code still make sense?
+#
+#    Does each section of the code still do what it was intended to do?
+#
+#    Are there any improvements that you think should be made, e.g.
+#       a) Where code is not giving the right answer (an error)
+#       b) Where code could be written better (style or efficiency)
+# 
+# 3.	Carry out a ‘sense check’ of the results:
+#       a) Do they appear reasonable?  e.g. do trends look feasible; are the figures
+#          much higher or lower than in previous years? 
+#       b) Do they compare well with published figures, where available, or with
+#          figures previously produced by OCAT?
+#
+# ==============================================================================
+
+
+
+```

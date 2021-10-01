@@ -1,0 +1,45 @@
+---
+#title: "Example Stylr Lint"
+#author: "Rachel Burton"
+#date: "20/04/2021"
+# output: 
+#   html_document:
+#     css: style_guidance.css
+    
+documentclass: book
+output:
+  bookdown::gitbook:
+    split_by: chapter
+    css: style_guidance.css  
+---
+
+```{r qc_feedback_setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Implementation and feedback
+
+Different projects carried out in R are likely to have slightly different requirements,
+so the process described within this framework is likely to need tweaking to suit
+those particular needs.  For the Covid Recovery Profile, for example, the project
+manager helpfully produced a standalone QC process document, built upon the 
+principles outlined within this document. For some projects, where many scripts
+are used to produce some complex analysis, it might be better to have a separate
+script to document the checks listed in section 5, rather than having checks listed
+at the start of every script.
+
+Given that our use of R is constantly evolving, this framework will need to be treated
+as a 'live' document and updated regularly.
+
+## Advice and feedback
+
+Please ask for advice with implementing this framework via the 'R help and news' channel or 
+by approaching one of the R Champions.  
+
+Feedback would be welcomed so that the framework can be further developed.
+
+
+
+
+
+
