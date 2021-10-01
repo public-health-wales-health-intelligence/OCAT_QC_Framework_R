@@ -1,0 +1,78 @@
+---
+title: "OCAT framework for the quality control of R code"
+author: "Observatory & Cancer Analysis Team, version 0b, August 2021"
+#site: bookdown::bookdown_site
+documentclass: book
+output:
+  
+  bookdown::gitbook:
+    
+    #split_by: chapter
+    split_by: none
+    css: qc_guidance.css
+  
+---
+
+<!-- You need version of R > 3.6.3 and bookdown installed to generate a book -->
+
+```{r mainsetup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(knitr)
+
+#https://bookdown.org/yihui/bookdown/some-tips.html
+#https://bookdown.org/yihui/rmarkdown/html-document.html
+#https://bookdown.org/yihui/bookdown/output-formats.html
+
+
+```
+
+<!--# OCAT Style Guide for R Code-->
+
+
+```{r introduction, child = "01_introduction_v0b.Rmd", echo=FALSE}
+
+# Read in file for introduction - include headings
+
+```
+
+
+<hr>
+
+```{r development, child = "02_development_v0a.Rmd", echo=FALSE}
+
+
+```
+
+<hr>
+
+```{r scenarios, child = "03_scenarios_v0b.Rmd", echo=FALSE}
+
+
+```
+
+<hr>
+
+```{r flow_chart, child = "04_flowchart_v0b.Rmd", echo=FALSE}
+
+
+```
+
+<hr>
+
+```{r qc_template, child = "05_qc_template_v0b.Rmd", echo=FALSE}
+
+
+```
+
+<hr>
+
+```{r qc_feedback, child = "06_implementation_feedback_v0a.Rmd", echo=FALSE}
+
+
+```
+
+
+
+
+
